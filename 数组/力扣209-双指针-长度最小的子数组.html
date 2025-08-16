@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<pre>
+给定一个含有 n 个正整数的数组和一个正整数 target 。
+
+找出该数组中满足其总和大于等于 target 的长度最小的 子数组 [numsl, numsl+1, ..., numsr-1, numsr] 
+，并返回其长度。如果不存在符合条件的子数组，返回 0 。
+		</pre>
+	</body>
+	<script>
+
+// 已完成
+var minSubArrayLen = function(target, nums) {
+    let slow = 0 //慢指针
+    let and =0
+    let min =Infinity //无穷大的数
+    for(let fast = 0;fast<nums.length;fast++){
+        and +=nums[fast]//窗口之间的和
+            while(and >= target){
+                //要最小的
+                min = min>(fast-slow+1)?(fast-slow+1):min
+                // 慢指针右滑动
+                and -= nums[slow]
+                slow++
+            }
+    }
+    //没有，min就还是最大值，返回0
+    return  min === Infinity ? 0 : min
+};
+
+console.log(minSubArrayLen(7,[2,3,1,2,4,3,7]))
+	</script>
+</html>

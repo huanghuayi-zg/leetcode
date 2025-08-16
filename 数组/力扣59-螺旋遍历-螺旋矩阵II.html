@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<pre>给你一个正整数 n ，
+            生成一个包含 1 到 n² 所有元素，
+            且元素按顺时针顺序螺旋排列的 n x n 正方形矩阵 matrix 。
+		</pre>
+	</body>
+	
+	<script>
+// 已完成
+
+var generateMatrix = function(n) {
+
+   const result = Array.from({ length: n }, () => new Array(n));
+   const rows = n
+   const cols = n;
+   let left = 0 //
+   let right = cols - 1
+   let top = 0 //
+   let bottom = rows - 1
+   let count =1
+
+    //左边超过右边 或者底部超过顶部即为停止
+   while (left <= right && top <= bottom) {
+    // 最上面，从左往右开始写
+       for (let i = left; i <= right; i++) {
+		   result[top][i] = count;
+           count++
+       }
+    // 顶部向下一格
+       top++;
+
+    // 右侧，从上往下   
+       for (let i = top; i <= bottom; i++) {
+        //    result.push(count);
+		   result[i][right] = count;
+           count++
+       }
+    //    右侧往这边收缩
+       right--;
+
+    //   底部，从右往左
+    // 判断没有top还没到bottom
+       if (top <= bottom) {
+           for (let i = right; i >= left; i--) {
+            //    result.push(count);
+			result[bottom][i] = count;
+               count++
+           }
+           bottom--;
+       }
+    //   左侧，从下往上
+       if (left <= right) {
+           for (let i = bottom; i >= top; i--) {
+            //    result.push(count);
+			result[i][left] = count;
+            count++
+           }
+           left++;
+       }
+   }
+   return result;
+};
+console.log(generateMatrix(5));
+	</script>
+</html>
