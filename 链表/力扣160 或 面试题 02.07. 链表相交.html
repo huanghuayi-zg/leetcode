@@ -32,15 +32,7 @@ var getIntersectionNode = function(headA, headB) {
 	//     123
 	let cha = lenA - lenB
 
-	if(cha > 0){
-		while(cha--){
-			curA = curA.next
-		}
-	}else{
-		while(cha++){
-			curB = curB.next
-		}
-	}
+	
 
 	while(curA !== curB){
 		curA = curA.next

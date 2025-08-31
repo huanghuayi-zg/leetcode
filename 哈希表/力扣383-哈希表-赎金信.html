@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<pre>
+    </pre>
+</body>
+<script>
+// 已完成
+var canConstruct = function(ransomNote, magazine) {
+    let map = new Map()
+	// magazine 是可能有多的，
+    for(let s of magazine){
+            map.set(s,(map.get(s)||0)+1)
+    }
+
+    for (let c of ransomNote) {
+        if (!map.has(c) || map.get(c) <= 0) {
+            return false;
+        }
+        map.set(c, map.get(c) - 1);
+    }
+    
+    return true
+};
+</script>
+</html>

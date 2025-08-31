@@ -24,7 +24,7 @@ var detectCycle = function(head) {
 			// 相遇时slow 又走了b
 			// 环内剩下 c 。 快指针多走了k圈
 			// 慢指针 距离 a+b
-			// 快指针 距离 a+b *k（b+c）
+			// 快指针 距离 a+b *k（b+c）k
 			// 又快指针 速度是 慢指针两倍
 			// 2（a+b） = a + b + k(b + c)
 			// 化简 a = (k - 1)(b + c) + c

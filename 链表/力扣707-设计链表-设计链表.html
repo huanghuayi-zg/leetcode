@@ -67,6 +67,7 @@ MyLinkedList.prototype.addAtTail = function(val) {
  * @return {void}
  */
 MyLinkedList.prototype.addAtIndex = function(index, val) {
+	// 仅要求超出范围的
     if(index > this.size) return
     if(index < 0 ) index = 0
   

@@ -37,7 +37,6 @@
 	}
 
 	var swapPairs = function (head) {
-
 		const dummy = new ListNode(0)
 		dummy.next = head
 
@@ -53,13 +52,15 @@
 
 			// 完成1 指向3 
 			cur.next.next.next = node3
-
 			cur = cur.next.next
 		}
 
 		return dummy.next
 	};
 	
+
+
+	// 测试
 	const arr = [1, 2, 6, 3, 4, 5, 6];
 	let head = null;
 	for (let i = arr.length - 1; i >= 0; i--) {
