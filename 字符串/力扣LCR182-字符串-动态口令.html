@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<pre>
+    </pre>
+</body>
+<script>
+// 已完成
+
+var dynamicPassword = function(password, target) {
+    const psw = password + password
+    // 右边界
+    const l = password.length + target
+
+    // 结果
+    let res = ""
+    for(let i = target;i< l ;i++)
+        res = res + psw[i]
+    return res
+};
+</script>
+</html>
