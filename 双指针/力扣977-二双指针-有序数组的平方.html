@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<pre>
+给你一个按 非递减顺序 排序的整数数组 nums，返回 每个数字的平方 组成的新数组，要求也按 非递减顺序 排序。
+			
+		</pre>
+	</body>
+	
+	<script>
+		
+// 已完成
+		var sortedSquares = function(nums) {
+    let left =0
+    let right =nums.length - 1
+    const arr =[]
+    while(left<=right){
+      const ri = nums[right]>0?nums[right]:-nums[right] 
+      const le = nums[left]>0?nums[right]:-nums[left]
+      if(le > ri){
+        arr.unshift(le * le)
+        left++
+      }else{
+        arr.unshift(ri * ri)
+        right--
+      }
+    }
+
+    return arr
+};
+	</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <pre>
+	</pre>
+</body>
+<script>
+
+    var removeNthFromEnd = function (head, n) {
+        const dummy = new ListNode(0);
+        dummy.next = head;
+
+        let slow = dummy;
+        let fast = dummy;
+        
+        for (let i = 0; i <= n; i++) {
+            fast = fast.next;
+        }
+
+        while (fast !== null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        slow.next = slow.next.next;
+
+        return dummy.next;
+    };
+
+
+
+</script>
+
+</html>
