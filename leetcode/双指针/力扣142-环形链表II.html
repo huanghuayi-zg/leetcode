@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<pre>
+
+		</pre>
+	</body>
+	<script>
+// 已完成
+var detectCycle = function(head) {
+    let slow = head
+    let fast = head
+    
+    while(fast && fast.next){
+        slow = slow.next
+        fast = fast.next.next
+        
+        if(fast === slow){
+            while(slow !== head){
+                slow = slow.next
+                head = head.next
+            }
+            return slow
+        }
+    }
+    return null
+};
+
+
+	</script>
+</html>

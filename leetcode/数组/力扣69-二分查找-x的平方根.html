@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <pre>
+        给你一个非负整数 x ，计算并返回 x 的 算术平方根 。
+
+由于返回类型是整数，结果只保留 整数部分 ，小数部分将被 舍去 。
+
+注意：不允许使用任何内置指数函数和算符，例如 pow(x, 0.5) 或者 x ** 0.5 。
+        </pre>
+    </body>
+    
+    <script>
+
+        // 已完成
+        var mySqrt = function(x) {
+            if (x < 2) return x // 0 和 1 的平方根就是它们自己
+
+            let left = 2, right = Math.floor(x / 2)
+            let con = 0
+
+            //左边和右边可以相等
+            while(left <= right){
+                const mid = Math.floor((left + right) / 2)
+                const square = mid * mid
+
+                con++
+                console.log("第",con,"次",left, right, mid, square)
+
+                if(square === x){
+                    return mid
+                }else if(square > x){
+                    right = mid - 1
+                }else{
+                    left = mid + 1
+                }
+            }
+            return right // 当循环结束时，right 就是小于等于 x 的最大整数的平方根
+        };
+        // 测试用例
+        mySqrt(10) 
+    </script>
+</html>

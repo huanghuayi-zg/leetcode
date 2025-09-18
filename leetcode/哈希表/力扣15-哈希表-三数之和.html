@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<pre>
+		一个数组，不重复，求和 === 0
+    </pre>
+</body>
+<script>
+// 未完成
+var threeSum = function(nums) {
+	const res = []
+
+    const uniqueArray = nums.sort((a, b) => a - b)
+	// 左右指针不重叠，所以是 -2
+	for(let i =0;i<uniqueArray.length -2 ; i++){
+		// 最前面的数字与下一个一样，可以直接跳过
+		if (i > 0 && nums[i] === nums[i - 1]) {
+            continue
+        }
+		
+		//如果大于0 说明右边都是大于零的，不存在 ===0 ,可能有000
+		if(uniqueArray[i]>0){
+			break
+		}
+
+		let left  = i+1
+		let right = uniqueArray.length-1
+
+		while(left < right){
+			const sum = uniqueArray[left] + uniqueArray[right] + uniqueArray[i]
+
+			if( sum=== 0){
+				res.push([uniqueArray[i],uniqueArray[left],uniqueArray[right] ])
+				// 左右指针与下一位相等 指针移动
+				while (left < right && nums[left] === nums[left + 1]) left++
+                while (left < right && nums[right] === nums[right - 1]) right--
+
+				left++
+                right--
+			}else if(sum > 0){
+				right--
+			}else{
+				left++
+			}
+		}
+	}
+	return res
+};
+
+console.log(threeSum([-1,0,1,2,-1,-4]))
+</script>
+</html>

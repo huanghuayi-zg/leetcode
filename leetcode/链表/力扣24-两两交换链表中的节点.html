@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<pre>
+给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）。
+
+ 
+
+示例 1：
+
+
+输入：head = [1,2,3,4]
+输出：[2,1,4,3]
+示例 2：
+
+输入：head = []
+输出：[]
+示例 3：
+
+输入：head = [1]
+输出：[1]
+		</pre>
+</body>
+<script>
+	// 已完成
+	class ListNode {
+		constructor(val, next = null) {
+			this.val = val;
+			this.next = next;
+		}
+	}
+
+	var swapPairs = function (head) {
+		const dummy = new ListNode(0)
+		dummy.next = head
+
+		let cur = dummy
+		while (cur.next !== null && cur.next.next !== null) {
+			const node1 = cur.next // 1
+			const node3 = cur.next.next.next
+			// 02 12 3 0和1都指向2
+			cur.next = cur.next.next // cur.next 就是2
+
+			// 完成2指向1 , cur.next就是2，所以下一个.next就是 1
+			cur.next.next = node1 /// cur.next.next 就是1
+
+			// 完成1 指向3 
+			cur.next.next.next = node3
+			cur = cur.next.next
+		}
+
+		return dummy.next
+	};
+	
+
+
+	// 测试
+	const arr = [1, 2, 6, 3, 4, 5, 6];
+	let head = null;
+	for (let i = arr.length - 1; i >= 0; i--) {
+		head = new ListNode(arr[i], head);
+	}
+	function printList(head) {
+		const res = [];
+		let cur = head;
+		while (cur) {
+			res.push(cur.val);
+			cur = cur.next;
+		}
+		console.log(res.join(' -> '));
+	}
+
+	const newHead = swapPairs(head);
+	printList(newHead); 
+</script>
+
+</html>

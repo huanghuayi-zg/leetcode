@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<pre>
+    </pre>
+</body>
+<script>
+// 已完成
+var reverseStr = function (s, k) {
+    const arr = [...s] // 转成可变的字符数组
+    const n = arr.length
+
+    for (let i = 0; i < n; i += 2 * k) {
+        // 左边界 i，右边界 min(i + k - 1, n - 1)
+        let left = i
+		
+		// i + k - 1 既从左边往右数看k个， n-1就是到最后
+        let right = Math.min(i + k - 1, n - 1)
+
+        // 双指针反转区间 [left, right]
+        while (left < right) {
+            [arr[left], arr[right]] = [arr[right], arr[left]]
+            left++
+            right--
+        }
+    }
+
+    return arr.join('');
+};
+</script>
+</html>

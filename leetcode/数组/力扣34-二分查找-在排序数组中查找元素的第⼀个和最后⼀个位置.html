@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<pre>
+			给你一个按照非递减顺序排列的整数数组 nums，和一个目标值 target。
+			请你找出给定目标值在数组中的开始位置和结束位置。
+			如果数组中不存在目标值 target，返回 [-1, -1]。
+		</pre>
+	</body>
+	<script>
+
+		// 已完成
+		var searchRange = function(nums, target) {
+			// indexOf 查找第一个符合的元素，返回下标
+			const frist = nums.indexOf(target)
+			if (frist === -1) {
+				// 没有直接返回
+				return [-1, -1]
+			}
+			// 有的话，找后面，再不济就相同
+			// reverse 反转数组，再查下标，
+			// 因为是反转的，所以求的是剩下的长度
+			const sc = nums.length - 1 - nums.reverse().indexOf(target)
+
+			return [frist, sc]
+		};
+
+		const nums = [-1, 1, 0, 3, 1, 5, 9, 12, 1]
+		const target = 1
+
+		console.log(searchRange(nums, target))
+	</script>
+</html>

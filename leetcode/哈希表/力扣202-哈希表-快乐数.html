@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<pre>
+    </pre>
+</body>
+<script>
+// 已完成
+function isHappy(n) {
+	// 检测循环
+  const map = new Set();
+
+  while (n !== 1 && !map.has(n)) {
+    map.add(n)
+    n = getNext(n)
+  }
+//   离得开循环就是 1 true
+  return n === 1
+
+  function getNext(num) {
+    let sum = 0
+    while (num > 0) {
+      const d = num % 10
+      sum += d * d
+      num = Math.floor(num / 10)
+    }
+    return sum
+  }
+}
+</script>
+</html>

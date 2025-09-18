@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<pre>
+    </pre>
+</body>
+<script>
+// 已完成
+var intersect = function(nums1, nums2) {
+    let haxi = new Map()	
+    for (let n of nums1) {
+			haxi.set(n,(haxi.get(n) || 0) + 1)
+		}
+    
+   let res = [];
+    for (let num of nums2) {
+        if (map.has(num) && map.get(num) > 0) {
+            res.push(num)
+            map.set(num, map.get(num) - 1)
+        }
+    }
+return res
+}
+</script>
+</html>

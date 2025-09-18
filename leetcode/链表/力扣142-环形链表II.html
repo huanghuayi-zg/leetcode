@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<pre>
+
+		</pre>
+	</body>
+	<script>
+// 已完成
+var detectCycle = function(head) {
+    let slow = head
+    let fast = head
+// 只要fast 不为 null ，他就有环
+    while(fast && fast.next){
+        slow = slow.next
+        fast = fast.next.next
+		// 相等 快指针追上慢指针
+        if(fast === slow){
+			// 这里需要计算，head 到入口距离a，
+			// 相遇时slow 又走了b
+			// 环内剩下 c 。 快指针多走了k圈
+			// 慢指针 距离 a+b
+			// 快指针 距离 a+b *k（b+c）k
+			// 又快指针 速度是 慢指针两倍
+			// 2（a+b） = a + b + k(b + c)
+			// 化简 a = (k - 1)(b + c) + c
+			// a 入口的距离，c 慢指针剩下环的距离，相遇即是入口
+            while(slow !== head){
+                slow = slow.next
+                head = head.next
+            }
+            return slow
+        }
+    }
+    return null
+};
+
+
+	</script>
+</html>

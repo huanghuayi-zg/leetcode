@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<pre>
+        s 是数组，里面是字符，反转
+        ['h','o','l','l','e']
+        
+        返回
+        ['e','l','l','o','h']
+    </pre>
+</body>
+<script>
+// 已完成
+var reverseString = function(s) {
+    // 双指针
+    for(let left=0,right=s.length-1;left<right;--right,++left)
+         [s[left], s[right]] = [s[right], s[left]]
+};
+</script>
+</html>

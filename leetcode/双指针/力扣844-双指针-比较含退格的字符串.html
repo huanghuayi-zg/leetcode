@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<pre>
+
+		</pre>
+	</body>
+	<script>
+
+var backspaceCompare = function(s, t) {
+    const ss = re(s)
+    const tt = re(t)
+    return ss ===tt
+};
+var re=function(s) {
+    let sum =0
+    let res=''
+    for(let i = s.length-1;i>=0;i--){
+       if(s[i] ==='#'){
+        sum++  
+        continue
+	}
+       if(sum===0){res +=s[i]
+       }else{
+		sum-- 
+       continue}
+}
+return res
+};
+	</script>
+</html>

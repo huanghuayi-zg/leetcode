@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<pre>
+给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的 字母异位词。
+
+ 
+
+示例 1:
+
+输入: s = "anagram", t = "nagaram"
+输出: true
+示例 2:
+
+输入: s = "rat", t = "car"
+输出: false
+	</pre>
+</body>
+<script>
+    // 已完成
+	var isAnagram = function (s, t) {
+		if (s.length !== t.length) {
+			return false
+		}
+		// es6自带的Map 哈希表
+		const haxi = new Map()//创建一个空对象
+		for(const one of s){
+			// one 索引 ， 后面是值
+			haxi.set(one, (haxi.get(one) || 0) + 1)
+		}
+
+		// .has(值) 判断是否存在
+		for(const tow of t ){
+			if(!haxi.has(tow)) return false
+			// 那就是存在，次数 -1
+			const cnt = haxi.get(tow) -1
+			// 次数用完，多一个 返回false 
+			if(cnt < 0 ) return false
+			// 重新赋值
+			haxi.set(tow,cnt)
+		}
+
+		return	true
+	};
+
+console.log(isAnagram('anagram', 'nagaram')); // true
+console.log(isAnagram('rat', 'car'));      
+</script>
+
+</html>

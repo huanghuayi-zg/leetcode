@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <pre>
+有序数组，删除重复
+		</pre>
+</body>
+<script>
+    const chongfu = function (arr) {
+        if (arr.length <= 1) return arr
+
+        let slow = arr.length - 1
+        for (let i = arr.length - 2; i >= 0; i--) {
+            if (arr[slow] === arr[i]) {
+                arr.splice(i, 1)
+            }
+            slow--
+        }
+        console.log(arr)
+        return arr.length
+    };
+
+    console.log(chongfu([1, 1,2,2,3]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 未完成 x的平方根    
+    // var gen = function (number) {
+    //     let left = 0
+    //     let right = number
+    //     while (left <= right) {
+    //         var mid = Math.floor((right - left)/2 +left)
+    //         const and = mid * mid
+    //         if (and === number) {
+    //             return mid
+    //         } else if (and > number) {
+    //             right = mid - 1
+    //         } else {
+    //             left = mid + 1
+    //         }
+    //         // console.log("left:",left,"right:"
+    //         // ,right,"mid:",mid)
+    //     }
+    //     return right
+    // };
+    // console.log("8的",gen(8))
+    // console.log("100的",gen(100))
+    // console.log("18的",gen(18))
+
+</script>
+
+</html>

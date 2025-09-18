@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<pre>
+    </pre>
+</body>
+<script>
+// 已完成
+var removeDuplicates = function(s) {
+    let stack =[s[0]]
+    for(let i =1;i<s.length;i++){
+        // 存在就删除，不存在就加入
+        if(stack[stack.length-1] === s[i]){
+            stack.pop()
+        }else{
+            stack.push(s[i])
+        }
+    }
+    return stack.join('')
+};
+</script>
+</html>
